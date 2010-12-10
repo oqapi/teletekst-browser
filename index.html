@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>Teletekst voorbeeld</title>
+<style type="text/css">
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+  #left{
+    /*linker iframe paneel*/
+    float: left;
+  }
+  #right{
+    /*rechter keypad paneel*/
+    float: left;
+  }
+  #keypad{
+    margin: 0 10px;
+    font-size: 2em;
+    cursor: pointer;
+    text-align: center;
+  }
+  #keypad td {
+    padding: 5px 10px;
+  }
+  #pagenumber {
+    font-size: 1em;
+    text-align: center;
+    width: 100px;
+  }
+</style>
+
+<script type="text/javascript">
+<!-- 
+  var paginaDir = "paginas/";
+  
+  function addNumber(number) {
+    var pageNumberField = document.getElementById('pagenumber');
+    var pageNumber = pageNumberField.value;
+    if (pageNumber.length < 3) {
+      pageNumber += number;
+      pageNumberField.value = pageNumber;
+    } else {
+      alert('Er zijn maar 3 cijfers mogelijk. Gebruik "C" om het veld leeg te maken.');
+    }
+  }
+
+  function clearInput() {
+    var pageNumberField = document.getElementById('pagenumber');
+    pageNumberField.value = '';
+  }
+
+  function go(pageNumber) {
+    var pageNumberField = document.getElementById('pagenumber');
+    var pageNumber = pageNumberField.value;
+    if (pageNumber.length == 3) {
+      var iframeField = document.getElementById('textpanel');
+      iframeField.src = paginaDir + pageNumber + '.html';
+      pageNumberField.value = '';
+    } else {
+      alert('Er zijn 3 cijfers nodig.');
+    }
+  };
+-->
+</script>
+
+</head>
+<body>
+<h1>Teletekst voorbeeld</h1>
+<div id="left">
+  <!-- iframe panel -->
+  <iframe id="textpanel" height="400px" width="600px" src="paginas/100.html"></iframe>
+</div>
+<div id="right">
+<!-- keypad panel -->
+  <table id="keypad">
+    <tr>
+      <td colspan="3"><input type="text" id="pagenumber">
+      </td>
+    </tr>
+    <tr>
+      <td onclick="addNumber(1);">1
+      </td>
+      <td onclick="addNumber(2);">2
+      </td>
+      <td onclick="addNumber(3);">3
+      </td>
+    </tr>
+    <tr>
+      <td onclick="addNumber(4);">4
+      </td>
+      <td onclick="addNumber(5);">5
+      </td>
+      <td onclick="addNumber(6);">6
+      </td>
+    </tr>
+    <tr>
+      <td onclick="addNumber(7);">7
+      </td>
+      <td onclick="addNumber(8);">8
+      </td>
+      <td onclick="addNumber(9);">9
+      </td>
+    </tr>
+    <tr>
+      <td onclick="clearInput();">C
+      </td>
+      <td onclick="addNumber(0);">0
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3" onclick="go();">Gaan
+      </td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>
